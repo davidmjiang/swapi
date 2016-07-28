@@ -6,16 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# (1..30).each do |i|
-#   planet = Tatooine::Planet.get(i)
-#   sleep(0.5)
-#   name = planet.name
-#   population = planet.population
-#   climate = planet.climate
-#   terrain = planet.terrain
+(1..30).each do |i|
+  planet = Tatooine::Planet.get(i)
+  sleep(0.5)
+  name = planet.name
+  population = planet.population
+  climate = planet.climate
+  terrain = planet.terrain
 
-#   Planet.find_or_create_by(name: name, population: population, climate: climate, terrain: terrain)
-# end
+  Planet.find_or_create_by(name: name, population: population, climate: climate, terrain: terrain)
+end
 
 PEOPLE = []
 RATINGS = [1,2,3,4,5]
