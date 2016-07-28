@@ -1,11 +1,24 @@
 <h1>Welcome to Star Wars Tripadvisor!</h1>
 <h2>Your destination for all your galactic travels</h2>
-<h3>Choose from a planet below:</h3>
-
-<ul>
-<% @planets.each do |planet| %>
-  <li>
-    <%= link_to planet.name, planet_path(planet) %>
-  </li>
+<h3>Choose from a planet below, or choose from one of our filters:</h3>
+<%= link_to "Top Rated", root_path(sort_by: "top_rated")%>
+<%= link_to "Deserts", root_path(sort_by: "deserts")%>
+<%= link_to "Forests", root_path(sort_by: "forests")%>
+<%= link_to "Mountains", root_path(sort_by: "mountains")%>
+<% if @sorted %>
+  <%= link_to "Show all", root_path%>
 <% end %>
-</ul>
+
+<table style="border-spacing: 15px">
+  <tr>
+    <th>Desintation</th>
+    <th>Average Rating</th>
+  </tr>
+  <% @planets.each do |planet| %>
+  <tr>
+    <td><%= link_to planet.name, planet_path(planet) %></td>
+    <td><%= planet.average_rating %></td>
+  </tr>
+  <% end %>
+</table>
+
