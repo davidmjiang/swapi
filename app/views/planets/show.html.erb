@@ -1,0 +1,13 @@
+<h2><%= link_to "Star Wars TripAdvisor", root_path %></h2>
+
+<h1><%= @planet.name %></h1>
+<ul>
+  <li>Population: <%= @planet.population %></li>
+  <li>Climate: <%= @planet.climate %></li>
+  <li>Terrain: <%= @planet.terrain %></li>
+</ul>
+
+<h3><%= link_to "Write a review", new_planet_review_path(@planet) %></h3>
+
+<h3>Reviews (<%= @planet.reviews.size %>)</h3>
+<%= render partial: 'planets/review', collection: @planet.reviews %>

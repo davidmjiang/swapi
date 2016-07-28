@@ -1,0 +1,11 @@
+<h1>Welcome to Star Wars Tripadvisor!</h1>
+<h2>Your destination for all your galactic travels</h2>
+<h3>Choose from a planet below:</h3>
+
+<ul>
+<% @planets.each do |planet| %>
+  <li>
+    <%= link_to planet.name, planet_path(planet) %>
+  </li>
+<% end %>
+</ul>
