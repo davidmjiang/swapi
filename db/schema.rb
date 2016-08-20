@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728163424) do
+ActiveRecord::Schema.define(version: 20160728233737) do
 
   create_table "planets", force: :cascade do |t|
     t.string   "name"
     t.string   "population"
     t.string   "climate"
     t.string   "terrain"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.float    "average_rating"
   end
 
   create_table "reviews", force: :cascade do |t|

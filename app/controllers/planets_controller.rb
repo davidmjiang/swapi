@@ -1,7 +1,7 @@
 class PlanetsController < ApplicationController
 
   def index
-    @planets = Planet.all.page
+    @planets = Planet.all
     @sorted = false
     if params[:sort_by]
       @sorted = true
@@ -20,8 +20,7 @@ class PlanetsController < ApplicationController
   def sorted_list(planets, sort_by)
     case sort_by
     when "top_rated"
-      planets.includes(:average)
-      planets.sort_by{|p| p.average_rating}.reverse[0..5]
+      planets.order(average_rating: :desc)
     when "deserts"
       planets.select{|p| p.terrain.split(", ").include?("desert")}
     when 'forests'
